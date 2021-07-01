@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/BaseApp
+/backend/src/baseapp.api/bin/Debug/net5.0
+/backend/src/baseapp.api/obj
+/backend/src/baseapp.api/Properties
+/backend/src/baseapp.api/BaseApp.Api.csproj.user
+/backend/src/baseapp.application/bin/Debug/net5.0
+/backend/src/baseapp.application/Dtos
+/backend/src/baseapp.application/CommandSide
+/backend/src/baseapp.application/obj
+/backend/src/baseapp.common/bin/Debug/net5.0
+/backend/src/baseapp.common/obj
+/backend/src/baseapp.domain/bin/Debug/net5.0
+/backend/src/baseapp.domain/obj
+/backend/src/baseapp.infrastructure/bin/Debug/net5.0
+/backend/src/baseapp.infrastructure/obj
+/backend/.vs/BaseApp
