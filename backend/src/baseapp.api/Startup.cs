@@ -1,7 +1,8 @@
 using BaseApp.Api.Extensions;
 using BaseApp.Application;
-using BaseApp.Infrastructure.Data.Context;
-using BaseApp.Infrastructure.Identity.Authentication;
+using BaseApp.Infra.Data.Context;
+using BaseApp.Infra.CrossCutting.Identity.Authentication;
+using BaseApp.Infra.CrossCutting.IoC;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using BaseApp.Api.ActionFilters;
 
 namespace BaseApp
 {
@@ -52,6 +54,9 @@ namespace BaseApp
 
             services.AddMemoryCache();
             services.AddJwtSecurity(tokenConfig);
+            services.AddMvc(options => options.Filters.Add<NotificationFilter>());
+
+            Bootstrapper.ConfigureDependencies(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

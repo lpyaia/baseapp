@@ -1,6 +1,6 @@
 ﻿using BaseApp.Application.CommandSide.Commands;
 using BaseApp.Application.Dtos;
-using BaseApp.Infrastructure.Identity.Authentication;
+using BaseApp.Infra.CrossCutting.Identity.Authentication;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -19,14 +19,19 @@ namespace BaseApp.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<Token> Post(AccessCredentialsDto credentials)
+        public async Task<ActionResult<Token>> Post(AccessCredentialsDto credentials)
         {
             var loginCommand = new LoginCommand(credentials.UserName,
                 credentials.Password,
                 credentials.RefreshToken,
                 credentials.GrantType);
 
-            return await _mediator.Send(loginCommand);
+            var token = await _mediator.Send(loginCommand);
+
+            if (!token.IsAuthenticated)
+                return Unauthorized(token);
+
+            return Ok(token);
         }
     }
 }

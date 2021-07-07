@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\baseapp.infrastructure\BaseApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\baseapp.infra.crosscutting\BaseApp.Infra.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>

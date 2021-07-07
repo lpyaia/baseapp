@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\baseapp.application\BaseApp.Application.csproj" />
     <ProjectReference Include="..\baseapp.common\BaseApp.Common.csproj" />
-    <ProjectReference Include="..\baseapp.infrastructure\BaseApp.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
